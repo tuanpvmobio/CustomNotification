@@ -4,17 +4,17 @@
 <dict>
 	<key>NSExtension</key>
 	<dict>
-		<key>NSExtensionPrincipalClass</key>
-		<string>TestNotifyContent.NotificationViewController</string>
 		<key>NSExtensionAttributes</key>
 		<dict>
 			<key>UNNotificationExtensionCategory</key>
-			<string>custom</string>
+			<string>myNotificationCategory</string>
 			<key>UNNotificationExtensionInitialContentSizeRatio</key>
 			<integer>1</integer>
 		</dict>
 		<key>NSExtensionPointIdentifier</key>
 		<string>com.apple.usernotifications.content-extension</string>
+		<key>NSExtensionPrincipalClass</key>
+		<string>TestNotifyContent.NotificationViewController</string>
 	</dict>
 </dict>
 </plist>

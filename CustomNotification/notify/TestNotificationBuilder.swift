@@ -55,14 +55,10 @@ class TestNotificationBuilder {
             content.userInfo = userInfo
         }
         
-        if let attachment:UNNotificationAttachment =
-            getAttatchmentFromBitmapSource(
-                backgroundImage,
-                rounded: false) {
-//            content.attachments.append(attachment)
+        if let attachment = getAttatchmentFromBitmapSource(backgroundImage, rounded: false) {
             content.attachments.append(attachment)
         }
-            
+        
         content.sound = UNNotificationSound.default
         // Deliver the notification in five seconds.
         let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 1, repeats: false)
@@ -73,70 +69,70 @@ class TestNotificationBuilder {
                                                           hiddenPreviewsBodyPlaceholder: "",
                                                           options: .customDismissAction)
         center.setNotificationCategories([notificationCategory])
-            center.add(request) {
-                (error) in
-            }
-            
+        center.add(request) {
+            (error) in
         }
         
-        func showNotificationBigPicture() {
-            let content = UNMutableNotificationContent()
-            content.title = "Hello"
-            
-            
-            content.body = "body"
-            content.categoryIdentifier = "custom"
-            content.userInfo = ["customData": "fizzbuzz"]
-            
-            content.sound = UNNotificationSound.default
-            
-            // Deliver the notification in five seconds.
-            let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 1, repeats: false)
-            let request = UNNotificationRequest(identifier: "custom", content: content, trigger: trigger) // Schedule the notification.
-            let notificationCategory = UNNotificationCategory(identifier: "custom",
-                                                              actions: [],
-                                                              intentIdentifiers: [],
-                                                              hiddenPreviewsBodyPlaceholder: "",
-                                                              options: .customDismissAction)
-            center.setNotificationCategories([notificationCategory])
-            center.add(request) { err in
-            }
-            
+    }
+    
+    func showNotificationBigPicture() {
+        let content = UNMutableNotificationContent()
+        content.title = "Hello"
+        
+        
+        content.body = "body"
+        content.categoryIdentifier = "custom"
+        content.userInfo = ["customData": "fizzbuzz"]
+        
+        content.sound = UNNotificationSound.default
+        
+        // Deliver the notification in five seconds.
+        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 1, repeats: false)
+        let request = UNNotificationRequest(identifier: "custom", content: content, trigger: trigger) // Schedule the notification.
+        let notificationCategory = UNNotificationCategory(identifier: "custom",
+                                                          actions: [],
+                                                          intentIdentifiers: [],
+                                                          hiddenPreviewsBodyPlaceholder: "",
+                                                          options: .customDismissAction)
+        center.setNotificationCategories([notificationCategory])
+        center.add(request) { err in
         }
+        
+    }
     
     func showNotifyCarousel( ){
         
     }
+    
+    private func getAttatchmentFromBitmapSource(_ bitmapSource:String?, rounded:Bool) -> UNNotificationAttachment? {
         
-        private func getAttatchmentFromBitmapSource(_ bitmapSource:String?, rounded:Bool) -> UNNotificationAttachment? {
+        //let dimensionLimit:CGFloat = 1038.0
+        
+        if !StringUtils.isNullOrEmpty(bitmapSource) {
             
-            //let dimensionLimit:CGFloat = 1038.0
-            
-            if !StringUtils.isNullOrEmpty(bitmapSource) {
+            if let image:UIImage = BitmapUtils.getBitmapFromSource(bitmapPath: bitmapSource!, roundedBitpmap: rounded) {
                 
-                if let image:UIImage = BitmapUtils.getBitmapFromSource(bitmapPath: bitmapSource!, roundedBitpmap: rounded) {
+                let fileManager = FileManager.default
+                let tmpSubFolderName = ProcessInfo.processInfo.globallyUniqueString
+                let tmpSubFolderURL = URL(fileURLWithPath: NSTemporaryDirectory()).appendingPathComponent(tmpSubFolderName, isDirectory: true)
+                
+                do {
+                    try fileManager.createDirectory(at: tmpSubFolderURL, withIntermediateDirectories: true, attributes: nil)
+                    let imageFileIdentifier = bitmapSource!.md5 + ".png"
+                    let fileURL = tmpSubFolderURL.appendingPathComponent(imageFileIdentifier)
                     
-                    let fileManager = FileManager.default
-                    let tmpSubFolderName = ProcessInfo.processInfo.globallyUniqueString
-                    let tmpSubFolderURL = URL(fileURLWithPath: NSTemporaryDirectory()).appendingPathComponent(tmpSubFolderName, isDirectory: true)
+                    // JPEG is more memory efficient, but switches trasparency by white color
+                    let imageData = image.pngData()//.jpegData(compressionQuality: 0.9)//
+                    try imageData?.write(to: fileURL)
                     
-                    do {
-                        try fileManager.createDirectory(at: tmpSubFolderURL, withIntermediateDirectories: true, attributes: nil)
-                        let imageFileIdentifier = bitmapSource!.md5 + ".png"
-                        let fileURL = tmpSubFolderURL.appendingPathComponent(imageFileIdentifier)
-                        
-                        // JPEG is more memory efficient, but switches trasparency by white color
-                        let imageData = image.pngData()//.jpegData(compressionQuality: 0.9)//
-                        try imageData?.write(to: fileURL)
-                        
-                        let imageAttachment = try UNNotificationAttachment.init(identifier: imageFileIdentifier, url: fileURL, options: nil)
-                        return imageAttachment
-                        
-                    } catch {
-                        print("error " + error.localizedDescription)
-                    }
+                    let imageAttachment = try UNNotificationAttachment.init(identifier: imageFileIdentifier, url: fileURL, options: nil)
+                    return imageAttachment
+                    
+                } catch {
+                    print("error " + error.localizedDescription)
                 }
             }
-            return nil
         }
+        return nil
     }
+}

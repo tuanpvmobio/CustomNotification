@@ -1,0 +1,17 @@
+{
+  "aps": {
+    "alert": {
+      "title": "米津玄師 MV「LOSER」",
+      "body": "5th Single「LOSER / ナンバーナイン」2016.9.28 RELEASE"
+    },
+    "category": "myNotificationCategory",
+    "sound": "bingbong.aiff",
+    "badge": 3
+  },
+  "videoId": "Dx_fKPBPYUI",
+  "description": "5th Single「LOSER / ナンバーナイン」2016.9.28 RELEASE",
+  "Simulator Target Bundle": "com.mobio.sdk",
+  "ct_mediaUrl": "https://ww1.sinaimg.cn/large/65312d9agw1f59leskkcij20cs0csmym.jpg",
+  "ct_mediaType": "image",
+  "rich_view": "two"
+}

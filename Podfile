@@ -7,6 +7,9 @@ target 'CustomNotification' do
 
   # Pods for CustomNotification
   pod 'ProgressHUD'
+  
+  pod 'MobioSDKSwift', :git => 'https://gitbucket.mobio.vn/git/SDK_APP/ios_swift_lib.git', :branch => 'RichNotification'
+  
 end
 
 target 'TestNotifyContent' do
@@ -14,5 +17,8 @@ target 'TestNotifyContent' do
   use_frameworks!
 
   # Pods for TestNotifyContent
-  
+#  pod 'MobioRichNotification', :git => 'https://github.com/VuCuongHD96/MobioRichNotification', :branch => 'notification_content'
+
+pod 'MobioSDKSwift', :git => 'https://gitbucket.mobio.vn/git/SDK_APP/ios_swift_lib.git', :branch => 'RichNotification'
+
 end

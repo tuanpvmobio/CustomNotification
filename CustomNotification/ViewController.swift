@@ -7,9 +7,11 @@
 
 import UIKit
 import SwiftUI
+//import MobioRichNotification
+
 
 class ViewController: UIViewController {
-    let notifyBuilder = TestNotificationBuilder()
+//    let notifyBuilder = TestNotificationBuilder()
     let swiftUIController = UIHostingController(rootView: ListView())
     
     override func viewDidLoad() {
@@ -19,11 +21,12 @@ class ViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        
+//        let notificationContentViewController = NotificationContentViewController.instantiate()
+//        present(notificationContentViewController, animated: true, completion: nil)
     }
     
     @IBAction func showNotify(_ sender: UIButton) {
-        notifyBuilder.showNotification()
+//        notifyBuilder.showNotification()
     }
     
 }

@@ -32,6 +32,7 @@
 		9AB8E5932898BAD8007CA1B9 /* BitmapUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AB8E5922898BAD8007CA1B9 /* BitmapUtils.swift */; };
 		9AB8E5952898BD85007CA1B9 /* StringUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AB8E5942898BD85007CA1B9 /* StringUtils.swift */; };
 		9AB8E5972898BDD8007CA1B9 /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AB8E5962898BDD8007CA1B9 /* StringExtension.swift */; };
+		FF1CFD739DA747D1FC495F75 /* Pods_TestNotifyContent.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84F07C03174555D83C717870 /* Pods_TestNotifyContent.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -97,6 +98,7 @@
 			files = (
 				9A4B3F172897D3E5006C1A68 /* UserNotificationsUI.framework in Frameworks */,
 				9A4B3F152897D3E5006C1A68 /* UserNotifications.framework in Frameworks */,
+				FF1CFD739DA747D1FC495F75 /* Pods_TestNotifyContent.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -440,21 +442,25 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 03F0194C0A41CA64D3FF6E3E /* Pods-TestNotifyContent.debug.xcconfig */;
 			buildSettings = {
-				CODE_SIGN_STYLE = Automatic;
+				APPLICATION_EXTENSION_API_ONLY = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 2KX9A9974X;
+				DEVELOPMENT_TEAM = Z532W7ANP2;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = TestNotifyContent/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = TestNotifyContent;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.example.phivantuan.CustomNotification.TestNotifyContent;
+				PRODUCT_BUNDLE_IDENTIFIER = com.mobio.sdk.RichPushNotification;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = DEV_RichPushNotification_APP_GROUP;
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -466,21 +472,25 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 2BA67805588060CFC2B01786 /* Pods-TestNotifyContent.release.xcconfig */;
 			buildSettings = {
-				CODE_SIGN_STYLE = Automatic;
+				APPLICATION_EXTENSION_API_ONLY = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 2KX9A9974X;
+				DEVELOPMENT_TEAM = Z532W7ANP2;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = TestNotifyContent/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = TestNotifyContent;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.example.phivantuan.CustomNotification.TestNotifyContent;
+				PRODUCT_BUNDLE_IDENTIFIER = com.mobio.sdk.RichPushNotification;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = DEV_RichPushNotification_APP_GROUP;
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -609,9 +619,10 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 2KX9A9974X;
+				DEVELOPMENT_TEAM = Z532W7ANP2;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = CustomNotification/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -619,13 +630,15 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.example.phivantuan.CustomNotification;
+				PRODUCT_BUNDLE_IDENTIFIER = com.mobio.sdk;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = DEV_SDK_APP_GROUP;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -639,9 +652,10 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 2KX9A9974X;
+				DEVELOPMENT_TEAM = Z532W7ANP2;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = CustomNotification/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -649,13 +663,15 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.example.phivantuan.CustomNotification;
+				PRODUCT_BUNDLE_IDENTIFIER = com.mobio.sdk;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = DEV_SDK_APP_GROUP;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

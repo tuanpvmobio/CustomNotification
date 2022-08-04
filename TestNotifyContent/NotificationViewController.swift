@@ -6,15 +6,16 @@
 //
 
 import UIKit
-import UserNotifications
+import MobioSDKSwift
 import UserNotificationsUI
 import SwiftUI
 import WebKit
 
-class NotificationViewController: UIViewController, UNNotificationContentExtension {
+class NotificationViewController: MobioNotificationContentExtension {
     var userInfo: [AnyHashable:Any]?
     let webView = WKWebView()
     let swiftUIController = UIHostingController(rootView: ListView())
+    
     
     var contentView: UIView = UIView(frame: .zero)
     var pageControl: UIPageControl = UIPageControl(frame: .zero)
@@ -22,6 +23,8 @@ class NotificationViewController: UIViewController, UNNotificationContentExtensi
     var itemViews =  [MobioImageView]()
     var currentItemIndex: Int = 0
     var timer: Timer? = nil
+    
+//    let notificationContentViewController = NotificationContentViewController.instantiate()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,23 +34,31 @@ class NotificationViewController: UIViewController, UNNotificationContentExtensi
         // Do any required interface initialization here.
     }
     
-    func didReceive(_ notification: UNNotification) {
+    override func didReceive(_ notification: UNNotification) {
         print("didReceive")
-        self.userInfo = notification.request.content.userInfo
-        let bodyHtml = userInfo?["body_html"] as? String? ?? ""
-        webView.backgroundColor = .green
-        webView.isOpaque = true
-        
-        let label = UILabel(frame: CGRect(x: 0, y: 0, width: 200, height: 21))
-        webView.loadHTMLString(bodyHtml!, baseURL: nil)
-        label.center = CGPoint(x: 00, y: 05)
-        webView.center = CGPoint(x:10,y:10)
-        label.textAlignment = .center
-        label.text = userInfo?["title"] as? String? ?? ""
+//        self.userInfo = notification.request.content.userInfo
+//        let bodyHtml = userInfo?["body_html"] as? String? ?? ""
+//        webView.backgroundColor = .green
+//        webView.isOpaque = true
+//
+//        let label = UILabel(frame: CGRect(x: 0, y: 0, width: 200, height: 21))
+//        webView.loadHTMLString(bodyHtml!, baseURL: nil)
+//        label.center = CGPoint(x: 00, y: 05)
+//        webView.center = CGPoint(x:10,y:10)
+//        label.textAlignment = .center
+//        label.text = userInfo?["title"] as? String? ?? ""
 //        self.view.addSubview(webView)
+//
+//
+//        showCarousel(notification)
+//        super.didReceive(notification)
         
+//        if let notifContentView = notificationContentViewController.view {
+//            notifContentView.frame = view.bounds
+//            view.addSubview(notifContentView)
+//        }
         
-        showCarousel(notification)
+        super.didReceive(notification)
     }
     
     override func viewDidLayoutSubviews() {
@@ -87,8 +98,6 @@ class NotificationViewController: UIViewController, UNNotificationContentExtensi
                 }
             }
         }
-        
-        
     }
     
     func setUpConstraints( ){
